@@ -23,7 +23,7 @@ def log_attendence():
         sheetName = request.args['sheet']
 
     if data['event'] == 'meeting.participant_left':
-        
+        updateAttendence(user['email'], False, user['leave_time'], topic, sheetName)
         return "Update OK"
     if data['event'] == 'meeting.participant_joined':
         updateAttendence(user['email'], True, user['join_time'], topic, sheetName)
